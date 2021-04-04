@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Build') {
-      steps {
-        sleep 1000
+      parallel {
+        stage('Build') {
+          steps {
+            sleep 10
+          }
+        }
+
+        stage('Build 2') {
+          steps {
+            sleep 20
+          }
+        }
+
       }
     }
 
